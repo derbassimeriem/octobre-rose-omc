@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pink Journey · Open Minds Club</title>
+  <meta name="description" content="An interactive Octobre Rose experience: play, learn and share.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7ab0"/><stop offset="1" stop-color="#d4206b"/></linearGradient>
+      <symbol id="ribbon" viewBox="0 0 100 140">
+        <path fill="url(#rg)" d="M50 54C28 36 20 10 38 6c15-3 15 28 12 48zM50 54c22-18 30-44 12-48-15-3-15 28-12 48zM45 50 18 128l19-6 11 14 7-72zM55 50l27 78-19-6-11 14-7-72z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="top">
+    <button class="brand" data-go="welcome" aria-label="Open Minds Club, home">
+      <img src="logo.png" alt="" onerror="this.hidden=true"><span>OPEN MINDS</span>
+    </button>
+    <nav aria-label="Main">
+      <button data-go="welcome">Home</button>
+      <button data-go="journey">Journey</button>
+      <button data-go="about">About</button>
+    </nav>
+    <span class="chip" id="pts" aria-live="polite">★ 0 pts</span>
+  </header>
+
+  <main id="main">
+    <section id="welcome" class="screen">
+      <div class="hero">
+        <div class="hero-txt">
+          <h1>PINK <span class="heart">♥</span><br>JOURNEY</h1>
+          <p class="lead">Play. Learn. Share. Make your mark.</p>
+          <p class="sub">An interactive experience to learn, play and raise awareness about breast cancer. Together, we can make a difference.</p>
+          <div class="row">
+            <button class="btn pri lg" data-act="start">Start your journey</button>
+            <button class="btn lg" data-act="how">How it works</button>
+          </div>
+          <p class="event">🗓 Octobre Rose · Because every awareness counts.</p>
+        </div>
+        <svg class="hero-rib" viewBox="0 0 100 140" aria-hidden="true"><use href="#ribbon"/></svg>
+      </div>
+    </section>
+
+    <section id="about" class="screen">
+      <div class="wrap">
+        <h2>About Pink Journey</h2>
+        <p class="sub">A digital experience created by Open Minds Club to raise awareness about breast cancer through games, quizzes and positive messages.</p>
+        <div class="cards three">
+          <article class="card"><span class="ic">🎮</span><b>Play</b><small>Fun and interactive games.</small></article>
+          <article class="card"><span class="ic">📖</span><b>Learn</b><small>Useful and reliable information.</small></article>
+          <article class="card"><span class="ic">💌</span><b>Share</b><small>Positive messages and support.</small></article>
+        </div>
+        <p class="note-med">Pink Journey is an awareness experience, not a medical tool. For any concern, talk to a health professional.</p>
+      </div>
+    </section>
+
+    <section id="journey" class="screen">
+      <div class="wrap">
+        <h2>Your journey</h2>
+        <p class="sub">Choose a path. Take part. Make an impact.</p>
+        <div class="prog" aria-live="polite"><div class="segs" id="segs"></div><p id="status"></p></div>
+        <div id="map"></div>
+        <button class="btn pri" id="results" data-go="final" hidden>See my results</button>
+      </div>
+    </section>
+
+    <section id="play" class="screen">
+      <div class="wrap narrow">
+        <button class="back" data-go="journey">← Back to journey</button>
+        <h2 id="atitle"></h2>
+        <p class="sub" id="adesc"></p>
+        <div id="body"></div>
+      </div>
+    </section>
+
+    <section id="final" class="screen">
+      <div class="wrap narrow center">
+        <svg class="rib sm" viewBox="0 0 100 140" aria-hidden="true"><use href="#ribbon"/></svg>
+        <h2 id="ftitle">Great job!</h2>
+        <p class="sub" id="fstatus"></p>
+        <div class="stats" id="stats"></div>
+        <ul class="ach" id="ach"></ul>
+        <div class="row c">
+          <button class="btn pri" id="share">Share your journey</button>
+          <button class="btn" data-go="welcome">Back to home</button>
+          <button class="btn" data-act="reset">Restart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="how">
+    <form method="dialog">
+      <h3>How it works</h3>
+      <ol>
+        <li><b>Choose your path.</b> Pick any activity on the map.</li>
+        <li><b>Play and learn.</b> Games, quizzes and challenges.</li>
+        <li><b>Earn points.</b> Unlock achievements as you go.</li>
+        <li><b>Make an impact.</b> Finish 2 of 3 categories to complete the journey.</li>
+      </ol>
+      <button class="btn pri">Let's go!</button>
+    </form>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
