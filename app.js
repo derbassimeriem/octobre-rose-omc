@@ -1,15 +1,30 @@
-/* Pink Journey · application logic (no backend, state in LocalStorage) */
+/* Pink Journey · application logic */
 (() => {
   'use strict';
   const { acts: A, myth, choice, tf, seed } = window.PJ;
   const $ = (s) => document.querySelector(s);
-  const KEY = 'pinkJourney.v1';
-  const CATS = ['Play', 'Learn', 'Share'];
-  const blank = () => ({ started: false, done: {}, best: {}, answers: {}, wall: [], ach: [] });
 
-  let S;
-  try { S = { ...blank(), ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch { S = blank(); }
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch { /* storage unavailable */ } };
+const KEY = 'pinkJourney.v1';
+const CATS = ['Play', 'Learn', 'Share'];
+
+const blank = () => ({
+  started: false,
+  done: {},
+  best: {},
+  answers: {},
+  wall: [],
+  ach: []
+});
+
+// Reset progress whenever the page loads
+localStorage.removeItem(KEY);
+let S = blank();
+
+const save = () => {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(S));
+  } catch {}
+};
 
   const esc = (t) => t.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const act = (id) => A.find((a) => a.id === id);
@@ -19,7 +34,7 @@
   const STATUS = ['Pick an activity to begin', 'Journey in progress', 'Journey completed', 'Perfect Journey'];
   let stop = () => {};
 
-  /* ---------- Achievements ---------- */
+  /* Achievements */
   const ACH = [
     { id: 'first', name: 'First Step', desc: 'Start the journey', ok: () => S.started },
     { id: 'game', name: 'Game On', desc: 'Finish a game', ok: () => catDone('Play') },
@@ -42,7 +57,7 @@
     $('#pts').textContent = '★ ' + total() + ' pts';
   }
 
-  /* ---------- Navigation ---------- */
+  /*  Navigation */
   function show(id) {
     stop(); stop = () => {};
     document.querySelectorAll('.screen').forEach((s) => s.classList.toggle('on', s.id === id));
@@ -96,7 +111,7 @@
       <div class="row c"><button class="btn" data-act="open" data-id="${id}">Play again</button><button class="btn pri" data-go="journey">Back to journey</button></div></div>`;
   }
 
-  /* ---------- Games ---------- */
+  /* Games */
   function gCatch(b) {
     b.innerHTML = `<div class="hud"><span>Score <b id="sc">0</b></span><span>Time <b id="tm">30</b>s</span></div>
       <div class="arena" id="ar"><button class="btn pri" id="go">Start (30 s)</button></div>`;
@@ -169,7 +184,7 @@
     };
   }
 
-  /* ---------- Quizzes (myth / choice / true-false) ---------- */
+  /* Quizzes (myth / choice / true-false) */
   function quiz(b, id, list) {
     let i = 0, ok = 0; S.answers[id] = [];
     const render = () => {
@@ -196,7 +211,7 @@
     render();
   }
 
-  /* ---------- Pink Wall ---------- */
+  /* Pink Wall */
   function gWall(b) {
     const draw = () => {
       $('#notes').innerHTML = [...seed.map((t) => ({ t })), ...S.wall].map((m, i) =>
@@ -220,7 +235,7 @@
     $('#msg').onkeydown = (e) => { if (e.key === 'Enter') send(); };
   }
 
-  /* ---------- Global events ---------- */
+  /*  Global events  */
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-go],[data-act]');
     if (!t) return;
@@ -240,7 +255,31 @@
       else { await navigator.clipboard.writeText(text); toast('Copied to clipboard'); }
     } catch { /* cancelled */ }
   };
+  
+/* ABOUT SECTION INTERACTION*/
+
+const aboutToggle = document.getElementById("aboutToggle");
+const aboutMore = document.getElementById("aboutMore");
+const aboutArrow = document.getElementById("aboutArrow");
+
+if (aboutToggle && aboutMore && aboutArrow) {
+  aboutToggle.addEventListener("click", () => {
+    const isExpanded =
+      aboutToggle.getAttribute("aria-expanded") === "true";
+
+    aboutToggle.setAttribute("aria-expanded", String(!isExpanded));
+    aboutMore.hidden = isExpanded;
+
+    aboutToggle.firstChild.textContent = isExpanded
+      ? "Discover Our Mission "
+      : "Close Our Mission ";
+
+    aboutArrow.textContent = isExpanded ? "↗" : "↙";
+  });
+}
+
 
   check();
   show('welcome');
+  
 })();

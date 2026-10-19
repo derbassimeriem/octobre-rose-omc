@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+
+  <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +8,7 @@
   <meta name="description" content="An interactive Octobre Rose experience: play, learn and share.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&display=swap">
+<html lang="en"></html>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="light">
@@ -32,34 +34,73 @@
   </header>
 
   <main id="main">
-    <section id="welcome" class="screen">
-      <div class="hero">
-        <div class="hero-txt">
-          <h1>PINK <span class="heart">♥</span><br>JOURNEY</h1>
-          <p class="lead">Play. Learn. Share. Make your mark.</p>
-          <p class="sub">An interactive experience to learn, play and raise awareness about breast cancer. Together, we can make a difference.</p>
-          <div class="row">
-            <button class="btn pri lg" data-act="start">Start your journey</button>
-            <button class="btn lg" data-act="how">How it works</button>
-          </div>
-          <p class="event">🗓 Octobre Rose · Because every awareness counts.</p>
-        </div>
-        <svg class="hero-rib" viewBox="0 0 100 140" aria-hidden="true"><use href="#ribbon"/></svg>
-      </div>
-    </section>
+   
+<section id="welcome" class="screen">
+  <div class="hero">
+    <div class="hero-txt">
+      <p class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        OCTOBRE ROSE · OPEN MINDS CLUB
+      </p>
 
-    <section id="about" class="screen">
-      <div class="wrap">
-        <h2>About Pink Journey</h2>
-        <p class="sub">A digital experience created by Open Minds Club to raise awareness about breast cancer through games, quizzes and positive messages.</p>
-        <div class="cards three">
-          <article class="card"><span class="ic">🎮</span><b>Play</b><small>Fun and interactive games.</small></article>
-          <article class="card"><span class="ic">📖</span><b>Learn</b><small>Useful and reliable information.</small></article>
-          <article class="card"><span class="ic">💌</span><b>Share</b><small>Positive messages and support.</small></article>
-        </div>
-        <p class="note-med">Pink Journey is an awareness experience, not a medical tool. For any concern, talk to a health professional.</p>
+      <h1>
+        PINK <span class="heart">♥</span><br>
+        JOURNEY<span class="title-period">.</span>
+      </h1>
+
+      <p class="lead">A little play. A lot of awareness.</p>
+
+      <p class="sub">
+        Discover, learn, and share messages of hope through
+        an interactive journey dedicated to breast cancer awareness.
+      </p>
+
+      <div class="row">
+        <button class="btn pri lg" data-act="start">
+          Start your journey <span aria-hidden="true">↗</span>
+        </button>
+
+        <button class="btn lg" data-act="how">
+          How it works <span aria-hidden="true">→</span>
+        </button>
       </div>
-    </section>
+
+      <p class="event">
+        <span aria-hidden="true">✳</span>
+        Awareness is a journey we take together.
+      </p>
+    </div>
+
+    <div class="hero-art" aria-label="Pink Journey awareness">
+      <div class="ink-orbit ink-orbit-one"></div>
+      <div class="ink-orbit ink-orbit-two"></div>
+
+      <div class="ink-wash wash-one"></div>
+      <div class="ink-wash wash-two"></div>
+      <div class="ink-wash wash-three"></div>
+
+      <div class="hero-stamp">
+        PLAY <span>·</span> LEARN <span>·</span> SHARE
+      </div>
+
+      <div class="hero-logo-card">
+        <img src="ribbon2.png" width="500 px" height="500 px" 
+             alt="Pink Journey awareness logo"
+             class="hero-logo">
+      </div>
+
+      <span class="floating-mark mark-heart">♡</span>
+      <span class="floating-mark mark-star">✳</span>
+      <span class="floating-mark mark-ribbon">〰</span>
+
+      <p class="art-caption">
+        Together, we make<br>
+        <strong>every voice count.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
 
     <section id="journey" class="screen">
       <div class="wrap">
@@ -95,6 +136,97 @@
       </div>
     </section>
   </main>
+
+<!-- ABOUT PINK JOURNEY -->
+<section class="about-section" id="about">
+  <div class="about-container">
+
+    <div class="about-label">
+      <span class="about-dot"></span>
+      MORE THAN A CAMPAIGN
+    </div>
+
+    <h2 class="about-title">
+      A journey toward
+      <span>awareness.</span>
+    </h2>
+
+    <p class="about-intro">
+      Pink Journey is an interactive digital experience created by
+      <strong>Open Minds Club</strong> for Octobre Rose, the breast
+      cancer awareness campaign.
+    </p>
+
+    <p class="about-description">
+      Our mission is to make awareness more engaging, accessible,
+      and memorable through interactive games, educational quizzes,
+      and positive messages. Discover, learn, and contribute to
+      a meaningful cause.
+    </p>
+
+    <button
+      class="about-button"
+      id="aboutToggle"
+      aria-expanded="false"
+      aria-controls="aboutMore"
+    >
+      Discover Our Mission
+      <span id="aboutArrow">↗</span>
+    </button>
+
+    <div class="about-more" id="aboutMore" hidden>
+      <div class="about-values">
+
+        <article class="about-card">
+          <span class="about-icon">♡</span>
+          <h3>PLAY</h3>
+          <p>
+            Discover through interactive games that make learning
+            engaging and memorable.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <span class="about-icon">✳</span>
+          <h3>LEARN</h3>
+          <p>
+            Challenge misconceptions and explore awareness messages
+            through educational quizzes.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <span class="about-icon">♡</span>
+          <h3>SHARE</h3>
+          <p>
+            Spread kindness, encouragement, and solidarity through
+            the Pink Wall.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="about-message">
+        <span class="about-ribbon">🎀</span>
+        <h3>Every small action matters.</h3>
+        <p>
+          Awareness starts with knowledge, grows through conversation,
+          and becomes stronger when we share it with others.
+        </p>
+        <p class="about-tagline">
+          Play. Learn. Share. Make your mark.
+        </p>
+      </div>
+
+      <p class="about-disclaimer">
+        Pink Journey is an educational awareness initiative, not a
+        medical diagnostic tool. For health concerns, seek advice
+        from a qualified healthcare professional.
+      </p>
+    </div>
+
+  </div>
+</section>
 
   <dialog id="how">
     <form method="dialog">

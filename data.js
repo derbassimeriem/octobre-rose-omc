@@ -14,7 +14,7 @@ window.PJ = {
     { q: 'Breast cancer only affects people with a family history of it.', a: false, e: 'Most people diagnosed have no family history. Anyone can be affected.' },
     { q: 'Breast cancer awareness matters throughout the year, not only in October.', a: true, e: 'October is a spotlight, but staying informed is useful all year.' },
     { q: 'Men can get breast cancer too.', a: true, e: 'It is rare, but men have breast tissue and can be affected.' },
-    { q: 'Wearing a bra causes breast cancer.', a: false, e: 'There is no scientific evidence linking bras to breast cancer.' },
+    { q: 'Breast cancer cannot occur without noticeable symptoms.', a: false, e: 'Breast cancer can develop without causing noticeable symptoms, especially in its early stages. This is why regular screening and recommended mammograms are important for early detection.' },
     { q: 'Finding cancer early generally gives more treatment options.', a: true, e: 'Early detection is one of the main reasons awareness matters.' },
     { q: 'A lump in the breast is always cancer.', a: false, e: 'Most lumps are not cancer, but any new change should be checked by a health professional.' },
     { q: 'Only older people can get breast cancer.', a: false, e: 'Risk increases with age, but younger adults can be affected too.' },
