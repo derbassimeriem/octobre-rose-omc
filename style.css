@@ -1088,3 +1088,75 @@ body.dark .top {
   .compose input { min-width: 0; }
   .compose .btn { padding: .7rem 1.2rem; }
 }
+/* ===== MOBILE · CLEAN & AESTHETIC (phones only) ===== */
+@media (max-width: 760px) {
+
+  /* Header: one slim row */
+  .top { flex-wrap: nowrap !important; gap: .5rem !important; padding: .55rem 1rem !important; }
+  .brand span { display: none !important; }
+  .brand img { width: 38px !important; height: 38px !important; }
+  nav { display: flex !important; order: 0 !important; width: auto !important; margin: 0 auto !important; gap: 0 !important; }
+  nav button { padding: .4rem .7rem !important; font-size: .9rem !important; }
+  .chip { margin: 0 !important; padding: .3rem .75rem !important; font-size: .85rem !important; }
+
+  /* HOME layout: one centered column */
+  #welcome .hero {
+    display: flex !important; flex-direction: column !important;
+    min-height: auto !important; gap: 2rem !important;
+    padding: 2rem 0 3rem !important; text-align: center !important;
+  }
+  #welcome .hero-txt { order: 1 !important; }
+  #welcome .hero-art {
+    order: 2 !important; min-height: 0 !important; padding: 0 !important;
+    display: flex !important; flex-direction: column !important;
+    align-items: center !important; gap: 1.1rem !important;
+  }
+
+  /* remove all decoration */
+  #welcome .hero-art::before,
+  #welcome .ink-orbit,
+  #welcome .ink-wash,
+  #welcome .floating-mark,
+  #welcome .art-caption,
+  #welcome .event,
+  #welcome::before, #welcome::after { display: none !important; }
+
+  /* small logo in a soft frame */
+  #welcome .hero-logo-card {
+    width: 104px !important; height: 104px !important; margin: 0 !important;
+    animation: none !important; box-shadow: 0 14px 34px rgba(196,42,108,.14) !important;
+  }
+  #welcome .hero-stamp {
+    position: static !important; transform: none !important;
+    font-size: .6rem !important; padding: .5rem .9rem !important;
+    background: rgba(255,255,255,.8) !important;
+  }
+
+  /* typography */
+  #welcome .eyebrow {
+    justify-content: center !important; font-size: .66rem !important;
+    letter-spacing: .14em !important; margin-bottom: 1.1rem !important;
+  }
+  #welcome h1 { font-size: clamp(3rem, 15vw, 4.4rem) !important; line-height: .9 !important; }
+  #welcome .lead { font-size: 1.12rem !important; margin: 1.2rem 0 .5rem !important; }
+  #welcome .sub { font-size: .95rem !important; line-height: 1.7 !important; margin-inline: auto !important; max-width: 32ch !important; }
+
+  /* buttons */
+  #welcome .row { flex-direction: column !important; align-items: stretch !important; gap: .7rem !important; margin-top: 1.5rem !important; }
+  #welcome .btn { width: 100% !important; justify-content: center !important; }
+
+  /* ABOUT: tidy on phones */
+  .about-section { padding: 56px 20px !important; }
+  .about-title { font-size: clamp(2.2rem, 10vw, 3rem) !important; }
+  .about-intro { font-size: 1.05rem !important; }
+  .about-card { padding: 22px !important; }
+
+  /* PINK WALL */
+  .wallbox {
+    display: grid !important; grid-template-columns: 1fr !important; gap: .7rem !important;
+    max-height: none !important; overflow: visible !important; min-height: 0 !important; padding: .9rem !important;
+  }
+  .note { max-width: none !important; width: 100% !important; font-size: .95rem !important; }
+  .compose { position: sticky; bottom: 0; z-index: 4; padding: .7rem 0; gap: .5rem; background: var(--plum); }
+  .compose input { min-width: 0; }
+}
