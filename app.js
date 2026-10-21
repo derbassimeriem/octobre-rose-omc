@@ -275,7 +275,7 @@ if (aboutToggle && aboutMore && aboutArrow) {
       ? "Discover Our Mission "
       : "Close Our Mission ";
 
-    aboutArrow.textContent = isExpanded ? "↗" : "↙";
+    aboutArrow.textContent = isExpanded ? "↓" : "↑";
   });
 }
 
