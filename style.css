@@ -1034,3 +1034,57 @@ body.dark .top {
     z-index: 4;
   }
 }
+/* ===== MOBILE (phones only) ===== */
+@media (max-width: 760px) {
+
+  /* Header: one clean row */
+  .top { flex-wrap: nowrap; gap: .6rem; padding: .5rem 1rem; }
+  .brand span { display: none; }
+  .brand img { width: 40px; height: 40px; }
+  nav { display: flex; order: 0; width: auto; margin: 0 auto; gap: .1rem; }
+  nav button { padding: .4rem .65rem; font-size: .9rem; }
+  .chip { margin-left: 0; padding: .3rem .7rem; font-size: .85rem; }
+
+  /* HOME: clean, text first, small logo under it */
+  #welcome .hero {
+    display: flex; flex-direction: column;
+    min-height: auto; gap: 1.5rem;
+    padding: 1.5rem 0 2.5rem; text-align: center;
+  }
+  #welcome .hero-txt { order: 1; }
+  #welcome .hero-art {
+    order: 2; min-height: 0; padding: 0; gap: 1rem;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  /* remove all decoration on phones */
+  #welcome .hero-art::before,
+  #welcome .ink-orbit,
+  #welcome .ink-wash,
+  #welcome .floating-mark,
+  #welcome .art-caption,
+  #welcome .event { display: none; }
+
+  #welcome .hero-logo-card { width: 96px; height: 96px; animation: none; margin: 0; }
+  #welcome .hero-stamp { position: static; transform: none; font-size: .62rem; padding: .5rem .8rem; }
+
+  #welcome h1 { font-size: clamp(3rem, 15vw, 4.4rem); }
+  #welcome .eyebrow { justify-content: center; font-size: .68rem; letter-spacing: .12em; margin-bottom: 1rem; }
+  #welcome .lead { font-size: 1.15rem; margin-top: 1.1rem; }
+  #welcome .sub { font-size: .95rem; line-height: 1.7; margin-inline: auto; }
+  #welcome .row { flex-direction: column; align-items: stretch; margin-top: 1.4rem; }
+  #welcome .btn { width: 100%; justify-content: center; }
+
+  /* PINK WALL: all messages visible, input stays at the bottom */
+  .wallbox {
+    display: grid; grid-template-columns: 1fr; gap: .7rem;
+    max-height: none; overflow: visible; min-height: 0; padding: .9rem;
+  }
+  .note { max-width: none; width: 100%; font-size: .95rem; }
+  .compose {
+    position: sticky; bottom: 0; z-index: 4;
+    padding: .7rem 0; gap: .5rem; background: var(--plum);
+  }
+  .compose input { min-width: 0; }
+  .compose .btn { padding: .7rem 1.2rem; }
+}
