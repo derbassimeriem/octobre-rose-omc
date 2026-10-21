@@ -123,7 +123,8 @@ const save = () => {
         const [g, p, name] = kinds[Math.random() < 0.25 ? 3 : Math.floor(Math.random() * 3)];
         const el = document.createElement('button');
         el.className = 'tok' + (p < 0 ? ' x' : ''); el.textContent = g; el.setAttribute('aria-label', `${name} ${p > 0 ? '+' : ''}${p}`);
-        el.style.left = Math.random() * 88 + '%'; el.style.top = Math.random() * 82 + '%';
+       el.style.left = Math.random() * Math.max(0, ar.clientWidth - 64) + 'px';
+el.style.top  = Math.random() * Math.max(0, ar.clientHeight - 64) + 'px';
         el.onclick = () => {
           sc = Math.max(0, sc + p); $('#sc').textContent = sc;
           el.className = 'tok out' + (p < 0 ? ' neg' : ''); el.textContent = (p > 0 ? '+' : '') + p; el.disabled = true;
