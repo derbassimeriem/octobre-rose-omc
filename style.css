@@ -1160,3 +1160,63 @@ body.dark .top {
   .compose { position: sticky; bottom: 0; z-index: 4; padding: .7rem 0; gap: .5rem; background: var(--plum); }
   .compose input { min-width: 0; }
 }
+/* ===== MOBILE TOUCHES (phones only) ===== */
+@media (max-width: 760px) {
+
+  /* header: soft shadow */
+  .top { box-shadow: 0 6px 22px rgba(196, 42, 108, .08); }
+
+  /* less empty space under the logo */
+  #welcome.screen { padding-bottom: 2rem; }
+  #welcome .hero { padding-bottom: 1rem !important; }
+
+  /* entrance animation, staggered */
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  #welcome .hero-txt > * { animation: riseIn .6s ease both; }
+  #welcome .hero-txt > :nth-child(2) { animation-delay: .08s; }
+  #welcome .hero-txt > :nth-child(3) { animation-delay: .16s; }
+  #welcome .hero-txt > :nth-child(4) { animation-delay: .24s; }
+  #welcome .hero-txt > :nth-child(5) { animation-delay: .32s; }
+
+  /* small pink accent line under the tagline */
+  #welcome .lead::after {
+    content: ""; display: block; width: 44px; height: 3px;
+    border-radius: 3px; margin: .9rem auto 0;
+    background: linear-gradient(90deg, #f15a9a, #cb246c);
+  }
+
+  /* outline button gets a soft glass look */
+  #welcome .btn:not(.pri) { background: rgba(255, 255, 255, .7); }
+
+  /* shimmer sweep on the main button */
+  #welcome .btn.pri { position: relative; overflow: hidden; }
+  #welcome .btn.pri::after {
+    content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+    transform: skewX(-20deg);
+    animation: shimmer 4.5s ease-in-out 1.2s infinite;
+  }
+  @keyframes shimmer { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+
+  /* logo first, with a soft glow and pulsing rings, pill below it */
+  #welcome .hero-art {
+    background: radial-gradient(circle at 50% 36%, rgba(255, 170, 205, .45), transparent 62%);
+    padding: 1rem 0 .5rem !important;
+  }
+  #welcome .hero-logo-card {
+    order: 1; width: 128px !important; height: 128px !important;
+    animation: ringPulse 3.5s ease-in-out infinite !important;
+  }
+  #welcome .hero-stamp { order: 2; }
+  @keyframes ringPulse {
+    0%, 100% { box-shadow: 0 0 0 8px rgba(255,255,255,.55), 0 0 0 9px rgba(232,71,139,.20), 0 18px 40px rgba(196,42,108,.16); }
+    50%      { box-shadow: 0 0 0 14px rgba(255,255,255,.30), 0 0 0 15px rgba(232,71,139,.08), 0 18px 40px rgba(196,42,108,.16); }
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  #welcome .hero-txt > *, #welcome .btn.pri::after, #welcome .hero-logo-card { animation: none !important; }
+}
